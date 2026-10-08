@@ -1,5 +1,5 @@
 {
-  "name": "wrap-it-up",
+  "name": "wrap-it-up-cli",
   "version": "0.1.0",
   "description": "A context-engineering /wrap-it-up command for Claude Code: a plain-markdown, per-repo brain that closes the loop between sessions - decisions, lessons, and a compressed hot.md bridge, auto-loaded at the next session's start.",
   "type": "module",

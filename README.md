@@ -61,10 +61,16 @@ curl -fsSL https://raw.githubusercontent.com/thisismairaj/wrap-it-up/main/instal
 irm https://raw.githubusercontent.com/thisismairaj/wrap-it-up/main/install.ps1 | iex
 ```
 
-This installs the `wrap-it-up` CLI globally via npm, drops the `/wrap-it-up` command into
+This installs the `wrap-it-up` CLI globally via npm (`wrap-it-up-cli` on the registry; the
+command on your `PATH` is `wrap-it-up`), drops the `/wrap-it-up` command into
 `~/.claude/commands/`, and registers the `SessionStart` hook in `~/.claude/settings.json` -
 merged in alongside whatever's already there, nothing else touched. Idempotent, safe to re-run.
 **Open a new terminal afterward** so `PATH` picks up the new npm global bin.
+
+Just want the CLI, no `/wrap-it-up` command or hook wiring (e.g. scripting around it)?
+```bash
+npm install -g wrap-it-up-cli
+```
 
 ## Usage
 
@@ -115,11 +121,8 @@ npm install
 npm run build    # compiles src/ -> dist/
 ```
 
-`dist/` is committed so the install script's `npm install -g <tarball-url>` works straight off the
-repo, no build step required of the person installing it. (Deliberately not
-`npm install -g github:owner/repo` - that shorthand reproducibly leaves a dangling symlink to a
-temp cache dir on some npm versions, Windows + npm 11 + Node 24 among them, which breaks silently
-right after install.)
+`dist/` is committed so the package works the same whether you install it from npm or straight off
+the repo - no build step required of the person installing it either way.
 
 ## License
 
