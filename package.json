@@ -1,0 +1,41 @@
+{
+  "name": "wrap-it-up",
+  "version": "0.1.0",
+  "description": "A context-engineering /wrap-it-up command for Claude Code: a plain-markdown, per-repo brain that closes the loop between sessions - decisions, lessons, and a compressed hot.md bridge, auto-loaded at the next session's start.",
+  "type": "module",
+  "bin": {
+    "wrap-it-up": "dist/bin/wrap-it-up.js"
+  },
+  "main": "dist/bin/wrap-it-up.js",
+  "files": [
+    "dist",
+    "command"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "cli",
+    "claude-code",
+    "context-engineering",
+    "ai-memory",
+    "developer-tools"
+  ],
+  "author": {
+    "name": "thisismairaj",
+    "url": "https://github.com/thisismairaj"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisismairaj/wrap-it-up.git"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
