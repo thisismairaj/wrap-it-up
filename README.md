@@ -98,9 +98,8 @@ wrap-it-up status               # show this repo's brain state
 ```
 
 Every multi-word command reads its body from **stdin**, never a quoted argument. Windows
-PowerShell 5.1 silently strips embedded quotes before handing them to a native `.exe` - the same
-gotcha documented in [logcli-shortcuts](https://github.com/thisismairaj/logcli-shortcuts) - so
-this CLI sidesteps the whole class of bug instead of working around it per-shell.
+PowerShell 5.1 silently strips embedded quotes before handing them to a native `.exe` - so this
+CLI sidesteps the whole class of bug entirely instead of working around it per-shell.
 
 ## What it doesn't do
 
@@ -116,12 +115,11 @@ npm install
 npm run build    # compiles src/ -> dist/
 ```
 
-`dist/` is committed, same reason [ayat-of-the-day](https://github.com/thisismairaj/ayat-of-the-day)
-and [claude-pray](https://github.com/utkudarilmaz/claude-pray) commit their own `dist/`: the
-install script's `npm install -g <tarball-url>` works straight off the repo, no build step
-required of the person installing it. (Deliberately not `npm install -g github:owner/repo` -
-that shorthand reproducibly leaves a dangling symlink to a temp cache dir on some npm versions,
-Windows + npm 11 + Node 24 among them, which breaks silently right after install.)
+`dist/` is committed so the install script's `npm install -g <tarball-url>` works straight off the
+repo, no build step required of the person installing it. (Deliberately not
+`npm install -g github:owner/repo` - that shorthand reproducibly leaves a dangling symlink to a
+temp cache dir on some npm versions, Windows + npm 11 + Node 24 among them, which breaks silently
+right after install.)
 
 ## License
 
