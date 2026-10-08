@@ -6,7 +6,11 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
 }
 
 Write-Host "Installing the wrap-it-up CLI globally via npm..."
-npm install -g github:thisismairaj/wrap-it-up
+# A tarball URL, not the "github:owner/repo" shorthand - that shorthand
+# leaves a dangling symlink to a temp cache dir on some npm versions
+# (reproduced on npm 11.19.0 / Node 24 on Windows), which breaks the
+# install silently until the next `require()` fails.
+npm install -g https://github.com/thisismairaj/wrap-it-up/archive/refs/heads/main.tar.gz
 if ($LASTEXITCODE -ne 0) {
     Write-Error "npm install failed - see output above."
     exit 1

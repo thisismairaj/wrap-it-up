@@ -9,7 +9,11 @@ if ! command -v node >/dev/null 2>&1; then
 fi
 
 echo "Installing the wrap-it-up CLI globally via npm..."
-npm install -g github:thisismairaj/wrap-it-up
+# A tarball URL, not the "github:owner/repo" shorthand - that shorthand
+# leaves a dangling symlink to a temp cache dir on some npm versions
+# (reproduced on npm 11.19.0 / Node 24 on Windows), which breaks the
+# install silently until the next `require()` fails.
+npm install -g https://github.com/thisismairaj/wrap-it-up/archive/refs/heads/main.tar.gz
 
 mkdir -p "$HOME/.claude/commands"
 echo "Fetching the /wrap-it-up command..."

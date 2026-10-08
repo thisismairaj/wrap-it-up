@@ -117,9 +117,11 @@ npm run build    # compiles src/ -> dist/
 ```
 
 `dist/` is committed, same reason [ayat-of-the-day](https://github.com/thisismairaj/ayat-of-the-day)
-and [claude-pray](https://github.com/utkudarilmaz/claude-pray) commit their own `dist/`:
-`npm install -g github:thisismairaj/wrap-it-up` works straight off the repo, no build step
-required of the person installing it.
+and [claude-pray](https://github.com/utkudarilmaz/claude-pray) commit their own `dist/`: the
+install script's `npm install -g <tarball-url>` works straight off the repo, no build step
+required of the person installing it. (Deliberately not `npm install -g github:owner/repo` -
+that shorthand reproducibly leaves a dangling symlink to a temp cache dir on some npm versions,
+Windows + npm 11 + Node 24 among them, which breaks silently right after install.)
 
 ## License
 
