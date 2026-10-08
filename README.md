@@ -51,26 +51,14 @@ after it.
 
 ## Install
 
-**macOS/Linux:**
-```bash
-curl -fsSL https://raw.githubusercontent.com/thisismairaj/wrap-it-up/main/install.sh | bash
-```
-
-**Windows (PowerShell):**
-```powershell
-irm https://raw.githubusercontent.com/thisismairaj/wrap-it-up/main/install.ps1 | iex
-```
-
-This installs the `wrap-it-up` CLI globally via npm (`wrap-it-up-cli` on the registry; the
-command on your `PATH` is `wrap-it-up`), drops the `/wrap-it-up` command into
-`~/.claude/commands/`, and registers the `SessionStart` hook in `~/.claude/settings.json` -
-merged in alongside whatever's already there, nothing else touched. Idempotent, safe to re-run.
-**Open a new terminal afterward** so `PATH` picks up the new npm global bin.
-
-Just want the CLI, no `/wrap-it-up` command or hook wiring (e.g. scripting around it)?
 ```bash
 npm install -g wrap-it-up-cli
 ```
+
+That's it, on every OS. This sets up the `/wrap-it-up` command and the `SessionStart` hook
+automatically (merged into `~/.claude/settings.json` alongside whatever's already there - nothing
+else touched), as well as the `wrap-it-up` CLI itself. Idempotent, safe to re-run. **Open a new
+terminal afterward** so `PATH` picks up the new npm global bin.
 
 ## Usage
 

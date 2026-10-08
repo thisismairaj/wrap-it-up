@@ -1,10 +1,10 @@
 ---
 description: Wrap the local-repo brain session - capture what happened into today's log, promote durables to the wiki, refresh hot.md so the next session starts with zero recap.
 ---
-You are wrapping up the current session against this repo's `.claude-brain/` (if one doesn't
-exist yet, tell the user to run `wrap-it-up init` first, and stop). The goal: leave everything
-documented well enough that the next session - yours or the user's - can pick up cold with **zero
-recap**.
+You are wrapping up the current session against this repo's `.claude-brain/` - it's created
+automatically on first use if it doesn't exist yet, no separate setup step needed. The goal: leave
+everything documented well enough that the next session - yours or the user's - can pick up cold
+with **zero recap**.
 
 All of the `wrap-it-up` CLI's write commands read their body from **stdin**, not an argument - use
 a heredoc or a piped `printf`/`echo`, never a quoted inline argument (quoting breaks differently

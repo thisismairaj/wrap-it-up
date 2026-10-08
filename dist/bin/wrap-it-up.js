@@ -25,14 +25,16 @@ function fail(msg) {
     process.stderr.write(`${msg}\n`);
     process.exit(1);
 }
+// Auto-creates the brain if it doesn't exist yet, rather than requiring a
+// separate `wrap-it-up init` step first - init is just idempotent folder
+// setup, so there's no real reason to make it a precondition. `init` still
+// exists as its own command for anyone who wants to set the gitignore entry
+// up ahead of time without writing anything.
 function requireBrain() {
     const repoRoot = findRepoRoot(process.cwd());
     if (!repoRoot)
         fail('Not inside a git repo - wrap-it-up only makes sense scoped to one.');
-    const brainDir = getBrainDir(repoRoot);
-    if (!fs.existsSync(brainDir)) {
-        fail(`No ${path.basename(brainDir)}/ here yet. Run "wrap-it-up init" first.`);
-    }
+    const { brainDir } = ensureBrain(repoRoot);
     return { repoRoot: repoRoot, brainDir };
 }
 function main() {

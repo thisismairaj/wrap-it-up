@@ -1,6 +1,6 @@
 {
   "name": "wrap-it-up-cli",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "A context-engineering /wrap-it-up command for Claude Code: a plain-markdown, per-repo brain that closes the loop between sessions - decisions, lessons, and a compressed hot.md bridge, auto-loaded at the next session's start.",
   "type": "module",
   "bin": {
@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "postinstall": "node dist/scripts/postinstall.js"
   },
   "engines": {
     "node": ">=18"
