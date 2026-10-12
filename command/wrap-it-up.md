@@ -43,6 +43,17 @@ Do, in order:
    a `-v2`. The index gets linked automatically the first time a slug is created; nothing else to
    do there.
 
+   **Link related pages with `[[other-slug]]`, inline in the body, wherever a page's content
+   genuinely depends on or extends another one.** A folder of wiki pages with no links between
+   them is still just a flat pile of files, even with an index - the links are what turn it into
+   something a graph of relationships, not just a location. `[[slug]]` stays plain text on
+   purpose (no special rendering, no link-resolution step in the CLI): `grep -rl '\[\[that-slug\]\]'
+   wiki/` finds everything that references a page, which is what actually matters here, not a
+   rendered graph view. Don't force a link where one isn't real - a page with no genuine
+   relationships stays unlinked, and that's fine. If a page accumulates several incoming links
+   over time and nothing links out from it, that's usually a sign it's become a central concept
+   worth surfacing in `hot.md` directly rather than leaving to a wiki lookup.
+
 4. **Refresh `hot.md`** - the ~500-word context bridge the SessionStart hook loads first next
    time:
    ```
