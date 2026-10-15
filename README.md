@@ -7,6 +7,26 @@
 
 ---
 
+## Why this matters
+
+The real cost of "the AI has no memory" isn't philosophical - it's the ten
+minutes at the start of every session spent re-explaining decisions you
+already made and bugs you already fixed, multiplied by every session you'll
+ever open in that repo. That's time spent restating, not building, and it
+compounds over a project's whole lifetime.
+
+wrap-it-up's bet is that the fix doesn't need to be clever. A markdown file
+you can `cat`, `grep`, and `git diff` like anything else in the repo is
+something you can actually trust and inspect, in a way a vector database
+just asks you to take on faith. The real win is structural: decisions and
+lessons get kept, action items don't, so what gets reloaded every session
+stays small and high-signal instead of growing without bound.
+
+**One honest limit:** none of this happens automatically. `/wrap-it-up` only
+runs when you type it, so a session you forget to wrap leaves nothing behind
+for the next one - the `SessionStart` hook can only load what a previous
+`/wrap-it-up` actually wrote.
+
 ## The problem
 
 Every new Claude Code session starts from zero. You re-explain your stack, your decisions, the
